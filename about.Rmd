@@ -2,8 +2,21 @@
 title: "About"
 ---
 
-### About this site
+### Education 
+Columbia University | Expected May 2025 
+MPH Epidemiology 
 
-Sometimes you need to say a bit about the site -- how it was made, where it's hosted, where the source code can be found. 
+NYU | 2023 
+BA in Biology 
 
-If this is for a project or analysis, I recommend giving some details about the R package versions that you used to create the content.
+### Professional Experiences 
+OurScoliosis | Director of Operations 
+
+Columbia University Deparment of Epidemiology | Researcher 
+
+Columbia University Built Environment and Health Research Group | Researcher 
+
+
+
+
+
