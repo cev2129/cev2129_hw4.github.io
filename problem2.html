@@ -279,51 +279,7 @@ $(document).ready(function () {
 </div>
 
 
-<div id="noaa-dataset" class="section level3">
-<h3>NOAA Dataset</h3>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching core tidyverse packages ─────────────────
-## ✔ dplyr     1.1.4     ✔ readr     2.1.5
-## ✔ forcats   1.0.0     ✔ stringr   1.5.1
-## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-## ✔ purrr     1.0.2     
-## ── Conflicts ──────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-<pre class="r"><code>library(p8105.datasets)
-library(plotly)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;plotly&#39;
-## 
-## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     last_plot
-## 
-## The following object is masked from &#39;package:stats&#39;:
-## 
-##     filter
-## 
-## The following object is masked from &#39;package:graphics&#39;:
-## 
-##     layout</code></pre>
-<pre class="r"><code>library(dplyr)
-library(rnoaa)</code></pre>
-<pre><code>## Registered S3 method overwritten by &#39;hoardr&#39;:
-##   method           from
-##   print.cache_info httr
-## The rnoaa package will soon be retired and archived because the underlying APIs have changed dramatically. The package currently works but does not pull the most recent data in all cases. A noaaWeather package is planned as a replacement but the functions will not be interchangeable.</code></pre>
-<pre class="r"><code>data(&quot;ny_noaa&quot;)
-ny_noaa = 
-  ny_noaa |&gt; 
-  mutate(date = ymd(date)) |&gt;
-  select(-id, -tmax, -tmin) |&gt;
-  filter(
-    !is.na(prcp),
-    snow != 0 
-  ) </code></pre>
-</div>
+
 
 
 

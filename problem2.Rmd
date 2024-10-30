@@ -1,28 +1,28 @@
 ---
 title: "Problem 2"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
-### NOAA Dataset 
-
-```{r}
+```{r setup, include=FALSE}
+library(flexdashboard)
 library(tidyverse)
 library(p8105.datasets)
 library(plotly)
 library(dplyr)
-library(rnoaa)
-```
+library(rnoaa) 
 
-```{r}
 data("ny_noaa")
-ny_noaa = 
+ny_noaa= 
   ny_noaa |> 
   mutate(date = ymd(date)) |>
-  select(-id, -tmax, -tmin) |>
+  select(date, prcp, snow, snwd) |>
   filter(
     !is.na(prcp),
-    snow != 0 
+    snow != 0
   ) 
 ```
-
 
 
