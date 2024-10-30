@@ -1,0 +1,27 @@
+---
+title: "Problem 2"
+---
+
+### NOAA Dataset 
+
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+library(dplyr)
+library(rnoaa)
+```
+
+```{r}
+data("ny_noaa")
+ny_noaa = 
+  ny_noaa |> 
+  mutate(date = ymd(date)) |>
+  select(-id, -tmax, -tmin) |>
+  filter(
+    !is.na(prcp),
+    snow != 0 
+  ) 
+  
+```
+

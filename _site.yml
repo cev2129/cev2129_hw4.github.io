@@ -5,6 +5,8 @@ navbar:
   right:
     - text: "About"
       href: about.html
+    - text: "Problem 2"
+      href: problem2.html
     - icon: fa-envelope fa-lg
       href: mailto:cev2129@cumc.columbia.edu
     - icon: fa-github fa-lg
