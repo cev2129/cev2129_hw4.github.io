@@ -25,4 +25,65 @@ ny_noaa=
   ) 
 ```
 
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+box = ny_noaa |> 
+  mutate(
+    year = year(date)
+  ) |> 
+  group_by(year) |>
+  mutate(year = fct_reorder(as.factor(year), prcp)) |> 
+  plot_ly(y = ~prcp, color = ~year, type = "box", colors = "viridis")
+
+ggplotly(box)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+bar = ny_noaa |> 
+  mutate(
+    year = year(date),
+    month = month(date)
+  ) |> 
+  filter(month == 11) |>
+  group_by(year) |>
+  summarize(avg_prcp = mean(prcp, na.rm = TRUE)) |> 
+  mutate(year = fct_reorder(as.factor(year), avg_prcp)) |> 
+  plot_ly(y = ~avg_prcp, color = ~year, type = "bar", colors = "viridis")
+
+ggplotly(bar)
+```
+
+### Chart C
+
+```{r}
+line = ny_noaa |>
+  mutate(
+    year = year(date),
+    month = month(date)  
+  ) |>
+  group_by(year) |>
+  summarize(avg_prcp = mean(prcp, na.rm = TRUE)) |>
+  plot_ly(
+    x = ~year,
+    y = ~avg_prcp,
+    type = "scatter",
+    mode = "lines",  
+    line = list(color = "blue")
+  ) |>
+  layout(
+    yaxis = list(title = "Average Precipitation (prcp)"),
+    xaxis = list(title = "Month (2010)")
+  )
+
+ggplotly(line)
+```
 
